@@ -30,16 +30,3 @@ class Service {
     print(response['joke']);
     return response['joke'];
   }
-
-  //     if (response.statusCode == 200) {
-  //       print();
-  //       return ;
-  //     } else {
-  //       throw Exception('Failed to load joke');
-  //     }
-  //   } catch (error) {
-  //     throw Exception('Failed to load joke');
-  //   }
-  // }
-
-}

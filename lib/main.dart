@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         fontFamily: 'OpenSans',
       ),
-      home: Home(title: '              MAGIC DAD JOKES BALL'),
+      home: Home(title: 'MAGIC DAD JOKES BALL'),
     );
   }
 }
@@ -83,13 +83,13 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white,
             fontSize: 25,
             fontFamily: 'Anton',
           ),
         ),
+        centerTitle: true,
         backgroundColor: Colors.deepPurple[100],
       ),
       body: Stack(
@@ -132,41 +132,46 @@ class _HomeState extends State<Home> {
                   //     ],
                   //   ),
                   // ),
-                  Center(
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          alignment: Alignment.center,
-                          child: Image(
-                            image: AssetImage('images/trio.png'),
-                            alignment: Alignment.center,
-                          ),
-                        ),
-                        Container(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'This is very often used in every application where we have to draw text over an image.',
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 18.0),
-                            )),
-                      ],
-                    ),
-                  ),
+
+                  // Center(
+                  //   child: Stack(
+                  //     children: <Widget>[
+                  //       Container(
+                  //         alignment: Alignment.center,
+                  //         child: Image(
+                  //           image: AssetImage('images/trio.png'),
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //           alignment: Alignment.center,
+                  //           child: Text(
+                  //             'Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah ',
+                  //             style: TextStyle(
+                  //                 color: Colors.white, fontSize: 15.0),
+                  //           )),
+                  //     ],
+                  //   ),
+                  // ),
 
                   // CustomPaint(
                   //     size: Size(180, 180), painter: DrawTriangleShape()),
-                  Padding(
-                    padding: const EdgeInsets.all(50.0),
-                    child: Text(
-                      _joke,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 15,
+                  Spacer(),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: const EdgeInsets.all(50.0),
+                      child: Text(
+                        _joke,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
+                  Spacer(),
                   Container(
                     alignment: Alignment.bottomRight,
                     child: Padding(
@@ -174,6 +179,12 @@ class _HomeState extends State<Home> {
                       child: FloatingActionButton(
                         onPressed: () {
                           Clipboard.setData(ClipboardData(text: _joke));
+                          final snackBar = SnackBar(
+                              content: Text(
+                            'Copied to Clipboard!',
+                            textAlign: TextAlign.center,
+                          ));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                         child: Icon(Icons.copy, color: Colors.white),
                         backgroundColor: Colors.black54,
@@ -181,10 +192,11 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  Container(
+
+                  Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+                      padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -194,7 +206,6 @@ class _HomeState extends State<Home> {
                           ),
                           Text(
                             " SHAKE THE DEVICE TO REVEAL A JOKE",
-                            textAlign: TextAlign.center,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
