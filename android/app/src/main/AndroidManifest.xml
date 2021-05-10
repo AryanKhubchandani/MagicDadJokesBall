@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.magic_dad_ball">
+  <uses-permission android:name="android.permission.VIBRATE"/>
    <application
         android:label="magic_dad_ball"
         android:icon="@mipmap/ic_launcher">
+        
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

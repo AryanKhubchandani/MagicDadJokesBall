@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:shake/shake.dart';
+import 'package:vibration/vibration.dart';
 import './service.dart';
 
 void main() {
@@ -66,6 +68,8 @@ class _HomeState extends State<Home> {
     super.initState();
     ShakeDetector detector = ShakeDetector.autoStart(onPhoneShake: () {
       print("SHAKE SHAKE");
+      //VIBRATION
+      Vibration.vibrate();
       _service.getJoke().then((val) => setState(() {
             _joke = val;
           }));
@@ -154,12 +158,32 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   FloatingActionButton(
-                    onPressed: () async {
-                      _joke = await _service.getJoke();
-                      setState(() {});
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: _joke));
                     },
-                    child: Text("GET\nJoke"),
+                    child: Icon(Icons.copy),
+                    tooltip: 'Copy to Clipboard',
                   ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.vibration,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          " SHAKE THE DEVICE TO REVEAL A JOKE",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
