@@ -14,11 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Magic Dad Ball',
+      title: 'Magic Dad Jokes Ball',
       theme: ThemeData(
         primarySwatch: Colors.orange,
+        fontFamily: 'OpenSans',
       ),
-      home: Home(title: 'Magic Dad Ball'),
+      home: Home(title: '              MAGIC DAD JOKES BALL'),
     );
   }
 }
@@ -80,7 +81,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontFamily: 'Anton',
+          ),
+        ),
+        backgroundColor: Colors.deepPurple[100],
       ),
       body: Stack(
         children: <Widget>[
@@ -135,7 +145,7 @@ class _HomeState extends State<Home> {
                         Container(
                             alignment: Alignment.center,
                             child: Text(
-                              'Show text here',
+                              'This is very often used in every application where we have to draw text over an image.',
                               style: TextStyle(
                                   color: Colors.white, fontSize: 18.0),
                             )),
@@ -157,31 +167,42 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  FloatingActionButton(
-                    onPressed: () {
-                      Clipboard.setData(ClipboardData(text: _joke));
-                    },
-                    child: Icon(Icons.copy),
-                    tooltip: 'Copy to Clipboard',
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+                      child: FloatingActionButton(
+                        onPressed: () {
+                          Clipboard.setData(ClipboardData(text: _joke));
+                        },
+                        child: Icon(Icons.copy, color: Colors.white),
+                        backgroundColor: Colors.black54,
+                        tooltip: 'Copy to Clipboard',
+                      ),
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.vibration,
-                          color: Colors.white,
-                        ),
-                        Text(
-                          " SHAKE THE DEVICE TO REVEAL A JOKE",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.vibration,
                             color: Colors.white,
-                            fontSize: 20,
                           ),
-                        ),
-                      ],
+                          Text(
+                            " SHAKE THE DEVICE TO REVEAL A JOKE",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
