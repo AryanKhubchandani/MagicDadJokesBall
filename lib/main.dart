@@ -95,27 +95,50 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                            height: 200,
-                            width: 200,
+                  //TEXT ON IMAGE
+                  // Container(
+                  //   // margin: EdgeInsets.fromLTRB(50, 50, 50, 50),
+                  //   child: Stack(
+                  //     children: <Widget>[
+                  //       COntait
+                  //       Image(
+                  //         image: AssetImage('images/trio.png'),
+                  //         alignment: Alignment.center,
+                  //       ),
+                  //       Container(
+                  //         // margin: EdgeInsets.fromLTRB(50, 50, 50, 50),
+                  //         alignment: Alignment.center,
+
+                  //         child: Text(
+                  //           "This is text",
+                  //           style:
+                  //               TextStyle(color: Colors.white, fontSize: 18.0),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  Center(
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.center,
+                          child: Image(
+                            image: AssetImage('images/trio.png'),
                             alignment: Alignment.center,
-                            child: Center(
-                              child: Text(
-                                "Hi",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                          ),
+                        ),
+                        Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Show text here',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 18.0),
                             )),
-                      ),
-                      CustomPaint(
-                        size: Size(180, 180),
-                        painter: DrawTriangleShape(),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+
                   // CustomPaint(
                   //     size: Size(180, 180), painter: DrawTriangleShape()),
                   Padding(
