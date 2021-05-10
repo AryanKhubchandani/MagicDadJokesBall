@@ -1,19 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
-class Service extends StatefulWidget {
-  Service({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _ServiceState createState() => _ServiceState();
-}
-
-class _ServiceState extends State<Service> {
+class Service {
   // Future<String> getJoke() async {
   //   final url = 'https://icanhazdadjoke.com/';
   //   var dio = Dio();
@@ -53,25 +42,4 @@ class _ServiceState extends State<Service> {
   //   }
   // }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            child: Column(
-              children: [
-                Text("Get Joke"),
-                ElevatedButton(
-                    onPressed: () {
-                      getJoke();
-                    },
-                    child: Text("GET Joke"))
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:shake/shake.dart';
 import './service.dart';
 
 void main() {
@@ -33,32 +34,46 @@ class _HomeState extends State<Home> {
   final _service = Service();
 
   String _joke = "";
-
-  _HomeState() {
-    _service.getJoke().then((val) => setState(() {
-          _joke = val;
-        }));
+  @override
+  void initState() {
+    super.initState();
+    ShakeDetector detector = ShakeDetector.autoStart(onPhoneShake: () {
+      print("SHAKE SHAKE");
+      _service.getJoke().then((val) => setState(() {
+            _joke = val;
+          }));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            child: Column(
-              children: [
-                Text("Get Joke"),
-                ElevatedButton(
-                  onPressed: () async {
-                    _joke = await _service.getJoke();
-                    setState(() {});
-                  },
-                  child: Text("GET Joke"),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: Text(
+                  _joke,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
-                Text('$_joke'),
-              ],
-            ),
+              ),
+              FloatingActionButton(
+                onPressed: () async {
+                  _joke = await _service.getJoke();
+                  setState(() {});
+                },
+                child: Text("GET\nJoke"),
+              ),
+            ],
           ),
         ),
       ),
