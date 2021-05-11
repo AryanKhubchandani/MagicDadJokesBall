@@ -144,14 +144,14 @@ class _HomeState extends State<Home> {
                             image: AssetImage('images/tri.png'), height: 260),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(120, 0, 120, 100),
+                        padding: const EdgeInsets.fromLTRB(130, 10, 130, 100),
                         child: Text(
-                          _joke,
+                          _joke.toUpperCase(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: 11,
                           ),
                         ),
                       ),
