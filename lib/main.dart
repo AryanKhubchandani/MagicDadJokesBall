@@ -132,46 +132,34 @@ class _HomeState extends State<Home> {
                   //     ],
                   //   ),
                   // ),
+                  SizedBox(
+                    height: 160,
+                  ),
 
-                  // Center(
-                  //   child: Stack(
-                  //     children: <Widget>[
-                  //       Container(
-                  //         alignment: Alignment.center,
-                  //         child: Image(
-                  //           image: AssetImage('images/trio.png'),
-                  //         ),
-                  //       ),
-                  //       Container(
-                  //           alignment: Alignment.center,
-                  //           child: Text(
-                  //             'Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah ',
-                  //             style: TextStyle(
-                  //                 color: Colors.white, fontSize: 15.0),
-                  //           )),
-                  //     ],
-                  //   ),
-                  // ),
-
-                  // CustomPaint(
-                  //     size: Size(180, 180), painter: DrawTriangleShape()),
-                  Spacer(),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: const EdgeInsets.all(50.0),
-                      child: Text(
-                        _joke,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 15,
+                  Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: <Widget>[
+                      Container(
+                        child: Image(
+                            image: AssetImage('images/tri.png'), height: 260),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(120, 0, 120, 100),
+                        child: Text(
+                          _joke,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
+                    clipBehavior: Clip.antiAlias,
                   ),
                   Spacer(),
+
                   Container(
                     alignment: Alignment.bottomRight,
                     child: Padding(

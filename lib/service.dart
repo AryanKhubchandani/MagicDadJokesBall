@@ -30,3 +30,4 @@ class Service {
     print(response['joke']);
     return response['joke'];
   }
+}
