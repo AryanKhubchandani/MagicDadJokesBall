@@ -1,16 +1,5 @@
-# magic_dad_ball
+# Magic Dad Joke Ball
 
-A new Flutter project.
+An app which is basically a magic 8-Ball, but instead of showing advice on a yes–no question on shaking it, it reveals a dad joke. The joke can also be copied to clipboard for sharing purpose. The App uses the icanhazdadjoke.com API to fetch jokes.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot](images/screenshot.jpg)
