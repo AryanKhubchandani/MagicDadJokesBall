@@ -10,7 +10,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,36 +19,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'OpenSans',
       ),
       home: Home(title: 'MAGIC DAD JOKES BALL'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
-
-// class DrawTriangleShape extends CustomPainter {
-//   Paint painter;
-
-//   DrawTriangleShape() {
-//     painter = Paint()
-//       ..color = Colors.purpleAccent
-//       ..style = PaintingStyle.fill;
-//   }
-
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     var path = Path();
-
-//     path.moveTo(size.width / 2, 0);
-//     path.lineTo(0, size.height);
-//     path.lineTo(size.height, size.width);
-//     path.close();
-
-//     canvas.drawPath(path, painter);
-//   }
-
-//   @override
-//   bool shouldRepaint(CustomPainter oldDelegate) {
-//     return false;
-//   }
-// }
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -109,33 +82,9 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  //TEXT ON IMAGE
-                  // Container(
-                  //   // margin: EdgeInsets.fromLTRB(50, 50, 50, 50),
-                  //   child: Stack(
-                  //     children: <Widget>[
-                  //       COntait
-                  //       Image(
-                  //         image: AssetImage('images/trio.png'),
-                  //         alignment: Alignment.center,
-                  //       ),
-                  //       Container(
-                  //         // margin: EdgeInsets.fromLTRB(50, 50, 50, 50),
-                  //         alignment: Alignment.center,
-
-                  //         child: Text(
-                  //           "This is text",
-                  //           style:
-                  //               TextStyle(color: Colors.white, fontSize: 18.0),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   SizedBox(
                     height: 160,
                   ),
-
                   Stack(
                     alignment: AlignmentDirectional.center,
                     children: <Widget>[
@@ -159,7 +108,6 @@ class _HomeState extends State<Home> {
                     clipBehavior: Clip.antiAlias,
                   ),
                   Spacer(),
-
                   Container(
                     alignment: Alignment.bottomRight,
                     child: Padding(
@@ -180,7 +128,6 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
